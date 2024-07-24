@@ -1,29 +1,29 @@
-## 💻 Sobre o projeto
+## 💻 About the Project
 
-Adopet é um site fictício de adoção de pets, com funcionalidades para cadastro de tutores, de abrigos e de pets, além de solicitação de adoções. Nesse repositório o projeto será uma API Rest em Java do Adopet.
+Adopet is a fictional pet adoption site with functionalities for registering guardians, shelters, and pets, as well as adoption requests. In this repository, the project will be a Rest API in Java for Adopet.
 
 ---
 
-## ⚙️ Funcionalidades
+## ⚙️ Functionalities
 
-- [x] Cadastro/atualização de tutores;
-- [x] Cadastro de abrigos;
-- [x] Cadastro de pets do shelter;
-- [x] Listagem de pets disponíveis para adoção;
-- [x] Solicitação de adoção;
-- [x] Aprovação/reprovação de adoção;
+- [x] Registration/update of guardians
+- [x] Registration of shelters
+- [x] Registration of shelter pets
+- [x] Listing of pets available for adoption
+- [x] Adoption requests
+- [x] Approval/rejection of adoption requests
 
 ---
 
 ## 🎨 Layout
 
-O projeto desse repositório é apenas a API Backend, mas existe um figma com o layout que está disponível neste link: <a href="https://www.figma.com/file/TlfkDoIu8uyjZNla1T8TpH?embed_host=notion&kind=&node-id=518%3A11&t=esSUkfGQEWUeUASj-1&type=design&viewer=1">Layout no Figma</a>
+The project in this repository is only the Backend API, but there is a Figma design available at this link: <a href="https://www.figma.com/file/TlfkDoIu8uyjZNla1T8TpH?embed_host=notion&kind=&node-id=518%3A11&t=esSUkfGQEWUeUASj-1&type=design&viewer=1">Layout on Figma</a>
 
 ---
 
-## 🛠 Tecnologias
+## 🛠 Technologies
 
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
+The following technologies were used in the development of the project's Rest API:
 
 - **[Java 17](https://www.oracle.com/java)**
 - **[Spring Boot 3](https://spring.io/projects/spring-boot)**
@@ -34,10 +34,8 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 
 ---
 
-## 📝 Licença
+## 📝 License
 
-O projeto desse repositório foi desenvolvido por [Alura](https://www.alura.com.br) e utilizado nos cursos de boas práticas de programação com Java.
-
-Instrutor: [Rodrigo Ferreira](https://cursos.alura.com.br/user/rodrigo-ferreira)
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](LICENSE) file for details.
 
 ---
