@@ -3,7 +3,7 @@ package adopet.api.controller;
 import adopet.api.dto.ApproveAdoptionDto;
 import adopet.api.dto.RejectAdoptionDto;
 import adopet.api.dto.RequestAdoptionDto;
-import adopet.api.service.AdoptionServiceInterface;
+import adopet.api.service.IAdoptionService;
 import jakarta.validation.Valid;
 import jakarta.validation.ValidationException;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/adoptions")
 public class AdoptionController {
 
-    private final AdoptionServiceInterface adoptionService;
+    private final IAdoptionService adoptionService;
 
-    public AdoptionController(AdoptionServiceInterface adoptionService) {
+    public AdoptionController(IAdoptionService adoptionService) {
         this.adoptionService = adoptionService;
     }
 

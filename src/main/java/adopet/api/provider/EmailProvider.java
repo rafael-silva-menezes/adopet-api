@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailProvider implements EmailProviderInterface {
+public class EmailProvider implements IEmailProvider {
     private static final Logger logger = LoggerFactory.getLogger(EmailProvider.class);
     private final JavaMailSender emailSender;
     @Value("${email.default.from}")

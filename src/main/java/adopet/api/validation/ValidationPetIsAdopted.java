@@ -7,7 +7,7 @@ import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidationPetIsAdopted implements ValidationRequestAdoptionInterface {
+public class ValidationPetIsAdopted implements IValidationRequestAdoption {
     private final PetRepository petRepository;
 
     public ValidationPetIsAdopted(PetRepository petRepository) {

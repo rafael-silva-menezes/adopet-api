@@ -7,7 +7,7 @@ import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidationGuardianHasPendingAdoption implements ValidationRequestAdoptionInterface {
+public class ValidationGuardianHasPendingAdoption implements IValidationRequestAdoption {
     private final AdoptionRepository adoptionRepository;
 
     public ValidationGuardianHasPendingAdoption(AdoptionRepository adoptionRepository) {

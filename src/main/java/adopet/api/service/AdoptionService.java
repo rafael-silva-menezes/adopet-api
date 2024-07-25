@@ -6,29 +6,29 @@ import adopet.api.dto.RequestAdoptionDto;
 import adopet.api.model.Adoption;
 import adopet.api.model.Guardian;
 import adopet.api.model.Pet;
-import adopet.api.provider.EmailProviderInterface;
+import adopet.api.provider.IEmailProvider;
 import adopet.api.repository.AdoptionRepository;
 import adopet.api.repository.GuardianRepository;
 import adopet.api.repository.PetRepository;
-import adopet.api.validation.ValidationRequestAdoptionInterface;
+import adopet.api.validation.IValidationRequestAdoption;
 import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
-public class AdoptionService implements AdoptionServiceInterface {
+public class AdoptionService implements IAdoptionService {
 
     private static final String EMAIL_FROM = "adopet@email.com.br";
-    private final List<ValidationRequestAdoptionInterface> validations;
+    private final List<IValidationRequestAdoption> validations;
     private final AdoptionRepository adoptionRepository;
-    private final EmailProviderInterface emailProvider;
+    private final IEmailProvider emailProvider;
     private final GuardianRepository guardianRepository;
     private final PetRepository petRepository;
 
-    public AdoptionService(AdoptionRepository adoptionRepository, EmailProviderInterface emailProvider,
+    public AdoptionService(AdoptionRepository adoptionRepository, IEmailProvider emailProvider,
                            GuardianRepository guardianRepository, PetRepository petRepository,
-                           List<ValidationRequestAdoptionInterface> validations) {
+                           List<IValidationRequestAdoption> validations) {
         this.adoptionRepository = adoptionRepository;
         this.emailProvider = emailProvider;
         this.guardianRepository = guardianRepository;

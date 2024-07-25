@@ -7,7 +7,7 @@ import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidationApprovedAdoptionCount implements ValidationRequestAdoptionInterface {
+public class ValidationApprovedAdoptionCount implements IValidationRequestAdoption {
     private static final int MAX_APPROVED_ADOPTIONS = 5;
     private final AdoptionRepository adoptionRepository;
 

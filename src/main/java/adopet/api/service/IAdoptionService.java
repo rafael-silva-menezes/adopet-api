@@ -5,7 +5,7 @@ import adopet.api.dto.RejectAdoptionDto;
 import adopet.api.dto.RequestAdoptionDto;
 import jakarta.validation.ValidationException;
 
-public interface AdoptionServiceInterface {
+public interface IAdoptionService {
     void request(RequestAdoptionDto requestAdoption) throws ValidationException;
 
     void approve(ApproveAdoptionDto approveAdoption);
