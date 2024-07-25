@@ -4,7 +4,6 @@ import adopet.api.dto.ApproveAdoptionDto;
 import adopet.api.dto.RejectAdoptionDto;
 import adopet.api.dto.RequestAdoptionDto;
 import adopet.api.model.Adoption;
-import adopet.api.model.AdoptionStatus;
 import adopet.api.model.Guardian;
 import adopet.api.model.Pet;
 import adopet.api.provider.EmailProviderInterface;
@@ -14,7 +13,6 @@ import adopet.api.repository.PetRepository;
 import adopet.api.validation.ValidationRequestAdoptionInterface;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -43,13 +41,7 @@ public class AdoptionService implements AdoptionServiceInterface {
         Guardian guardian = guardianRepository.getReferenceById(requestAdoptionDto.guardianId());
         validations.forEach(v -> v.validate(requestAdoptionDto));
 
-        Adoption adoption = new Adoption();
-        adoption.setDate(LocalDateTime.now());
-        adoption.setStatus(AdoptionStatus.WAITING_EVALUATION);
-        adoption.setPet(pet);
-        adoption.setGuardian(guardian);
-        adoption.setReason(requestAdoptionDto.reason());
-
+        Adoption adoption = new Adoption(guardian, pet, requestAdoptionDto.reason());
         adoptionRepository.save(adoption);
 
         sendEmail(adoption.getPet().getShelter().getEmail(), "Adoption Request", buildRequestEmailBody(adoption));
@@ -57,15 +49,14 @@ public class AdoptionService implements AdoptionServiceInterface {
 
     public void approve(ApproveAdoptionDto approveAdoptionDto) {
         Adoption adoption = adoptionRepository.getReferenceById(approveAdoptionDto.adoptionId());
-        adoption.setStatus(AdoptionStatus.APPROVED);
+        adoption.approve();
 
         sendEmail(adoption.getGuardian().getEmail(), "Adoption Approved", buildApprovalEmailBody(adoption));
     }
 
     public void reject(RejectAdoptionDto rejectAdoptionDto) {
         Adoption adoption = adoptionRepository.getReferenceById(rejectAdoptionDto.adoptionId());
-        adoption.setStatus(AdoptionStatus.FAILED);
-        adoption.setJustification(rejectAdoptionDto.justification());
+        adoption.reprove(rejectAdoptionDto.justification());
 
         sendEmail(adoption.getGuardian().getEmail(), "Adoption Rejected", buildRejectionEmailBody(adoption));
     }

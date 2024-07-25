@@ -7,6 +7,8 @@ import jakarta.validation.ValidationException;
 
 public interface AdoptionServiceInterface {
     void request(RequestAdoptionDto requestAdoption) throws ValidationException;
+
     void approve(ApproveAdoptionDto approveAdoption);
+
     void reject(RejectAdoptionDto rejectAdoption);
 }

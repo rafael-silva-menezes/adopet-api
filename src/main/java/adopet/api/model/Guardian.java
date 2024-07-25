@@ -32,7 +32,7 @@ public class Guardian {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "guardian", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "guardian")
     @JsonManagedReference("guardian_adoptions")
     private List<Adoption> adoptions;
 

@@ -16,7 +16,8 @@ public class ValidationPetIsAdopted implements ValidationRequestAdoptionInterfac
 
     @Override
     public void validate(RequestAdoptionDto requestAdoptionDto) {
-        Pet pet = petRepository.getReferenceById(requestAdoptionDto.petId());
+        Pet pet = petRepository
+                .getReferenceById(requestAdoptionDto.petId());
         if (pet.getAdopted()) {
             throw new ValidationException("Pet has already been adopted!");
         }
